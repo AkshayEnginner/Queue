@@ -1,0 +1,105 @@
+import java.util.*;
+class Queue
+{
+    int n = 3;
+    int data[] = new int[n];
+    int r = -1;
+    int f = -1;
+    
+    void enque()
+    {
+       Scanner sc = new Scanner(System.in);
+       System.out.println("Enter the data");
+       int k = sc.nextInt();
+       if(f==(r+1)%n)
+       {
+           System.out.println("Queue is full");
+       }
+       else
+       {
+           if(f== -1 && r== -1)
+           {
+               f = 0;
+               r = 0;
+               data[r] = k;
+           }
+           else
+           {
+               r=(r+1)%n;
+               data[r] = k;
+           }
+       }
+    }
+    
+    void dequeue()
+    {
+        if(f==-1 && r==-1 )
+        {
+            System.out.println("Queue is empty");
+        }
+        else if(f==r)
+        {
+            System.out.println("Queue is empty");
+        }
+        else
+        {
+            f = (f+1)%n;
+        }
+    }
+    
+    void display()
+    {
+        int i;
+       System.out.println("The Entered are :");
+       for( i=f;i!=r;i=(i+1)%n)
+       {
+           System.out.println(data[i]);
+       }
+        System.out.println(data[i]);
+    }
+}
+
+
+class main 
+{
+    public static void main(String args[])
+    {
+        Scanner sc = new Scanner(System.in);
+        Queue q = new Queue();
+        int l,d;
+        
+    do
+    {    
+       System.out.println("1 to enqueue");
+       System.out.println("2 to dequeue");
+       System.out.println("3 to display");
+       System.out.println("Enter your choice");
+        d= sc.nextInt();
+       switch(d)
+       {
+           case 1:
+           {
+               q.enque();
+               break;
+           }
+           case 2:
+            {
+                q.dequeue();
+                break;
+            }
+            case 3:
+            {
+                q.display();
+                break;
+            }
+       }
+       System.out.println("Enter the 0 to menu again");
+       System.out.println("Enter any key to exit");
+       l = sc.nextInt();
+       
+        
+    }while(l==00);
+    System.out.println("exited");
+    
+}
+    }
